@@ -10,7 +10,7 @@ despensa-lite/
 
 ## Requisitos
 
-- Node.js 24 LTS (ver `.nvmrc`). Con nvm-windows: `nvm install 24 && nvm use 24`
+- Node.js 24 LTS (ver `.nvmrc`), p. ej. el instalador oficial de nodejs.org
 - npm (incluido con Node)
 
 ## Arranque

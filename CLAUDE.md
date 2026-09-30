@@ -7,8 +7,8 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - `/web`: una página con la lista de productos, un formulario para alta/edición y un botón de borrar. Un servicio con HttpClient llama a la API.
 
 ## Stack
-- Node 24 LTS (`.nvmrc`, gestionado con nvm-windows)
-- API: Express + TypeScript, `tsx` en desarrollo, `tsc --noEmit` para comprobar tipos, `zod` para validar
+- Node 24 LTS (v24.21.0, instalado con el .msi oficial, sin nvm; `.nvmrc` = 24 como referencia)
+- API: Express 5 + TypeScript 7, `tsx` en desarrollo, `tsc --noEmit` para comprobar tipos, `zod` para validar
 - Web: Angular (última estable) con standalone components y Reactive Forms, CSS a pelo (sin Material). CLI con `npx`, sin instalar nada global
 - Tests: solo en la API, al final, con Vitest + Supertest (2-3 casos). Se omiten si falta tiempo
 
@@ -16,6 +16,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - Código en inglés (`Product`, `expiryDate`). Las explicaciones al usuario, en español
 - Service como clase; controller como funciones
 - Fechas como string ISO `YYYY-MM-DD`
+- API en ESM (`"type": "module"`); imports relativos con extensión `.ts` (TS los reescribe a `.js` al compilar)
 
 ## Reglas de trabajo
 - Proponer un plan y esperar el OK antes de escribir código
@@ -28,7 +29,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 
 ## Plan
 0. Estructura del monorepo ✅
-1. Arrancar /api (package.json, dependencias, tsconfig)
+1. Arrancar /api (package.json, dependencias, tsconfig) ✅
 2. Modelo + service en memoria
 3. Controller + routes + app/server
 4. Validación con zod + middleware de errores
