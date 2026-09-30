@@ -10,7 +10,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - Node 24 LTS (v24.21.0, instalado con el .msi oficial, sin nvm; `.nvmrc` = 24 como referencia)
 - API: Express 5 + TypeScript 7, `tsx` en desarrollo, `tsc --noEmit` para comprobar tipos, `zod` para validar
 - Web: Angular 22.2 (usa su propio TypeScript 6; lo fija Angular) con standalone components, zoneless + signals y Reactive Forms, CSS a pelo (sin Material). CLI con `npx`, sin instalar nada global
-- Tests: solo en la API, al final, con Vitest + Supertest (2-3 casos). Se omiten si falta tiempo
+- Tests: solo en la API, con Vitest + Supertest (`api/test/`, 3 casos: alta 201, validación 400, 404)
 
 ## Convenciones
 - Código en inglés (`Product`, `expiryDate`). Las explicaciones al usuario, en español
@@ -23,7 +23,8 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - Express 5 + TypeScript 7 (últimas mayores), no Express 4 + TS 5
 - tsconfig estricto (`strict`, `noUncheckedIndexedAccess`)
 - Front → API mediante el proxy del dev server de Angular (`web/proxy.conf.json`), sin CORS en Express
-- Angular creado sin SSR, sin routing, sin tests (`--skip-tests`) y sin analytics
+- Angular creado sin SSR, sin routing, sin tests (`--skip-tests`) y sin analytics (`"analytics": false` en `angular.json`)
+- Textos de la interfaz en español
 
 ## Reglas de trabajo
 - Proponer un plan y esperar el OK antes de escribir código
@@ -46,4 +47,8 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 7. Modelo + ProductService con HttpClient ✅
 8. Componentes: lista, formulario, borrar ✅
 9. ~~Conectar front y back~~ (hecho en el paso 6 con el proxy)
-10. README final (+ tests de la API si hay tiempo)
+10. README final + tests de la API ✅
+
+## Estado
+Proyecto terminado (30/09/2026): API y front funcionan de punta a punta, 3 tests de la API en verde.
+Fuera de alcance: persistencia real, despliegue a producción (reverse proxy o CORS), tests del front.
