@@ -9,7 +9,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 ## Stack
 - Node 24 LTS (v24.21.0, instalado con el .msi oficial, sin nvm; `.nvmrc` = 24 como referencia)
 - API: Express 5 + TypeScript 7, `tsx` en desarrollo, `tsc --noEmit` para comprobar tipos, `zod` para validar
-- Web: Angular (última estable) con standalone components y Reactive Forms, CSS a pelo (sin Material). CLI con `npx`, sin instalar nada global
+- Web: Angular 22.2 (usa su propio TypeScript 6; lo fija Angular) con standalone components, zoneless + signals y Reactive Forms, CSS a pelo (sin Material). CLI con `npx`, sin instalar nada global
 - Tests: solo en la API, al final, con Vitest + Supertest (2-3 casos). Se omiten si falta tiempo
 
 ## Convenciones
@@ -22,6 +22,8 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - ESM en la API (`import`/`export`, no `require`)
 - Express 5 + TypeScript 7 (últimas mayores), no Express 4 + TS 5
 - tsconfig estricto (`strict`, `noUncheckedIndexedAccess`)
+- Front → API mediante el proxy del dev server de Angular (`web/proxy.conf.json`), sin CORS en Express
+- Angular creado sin SSR, sin routing, sin tests (`--skip-tests`) y sin analytics
 
 ## Reglas de trabajo
 - Proponer un plan y esperar el OK antes de escribir código
@@ -39,9 +41,9 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 2. Modelo + service en memoria ✅
 3. Controller + routes + app/server ✅
 4. Validación con zod + middleware de errores ✅
-5. Probar la API (curl / .http)
-6. Crear /web con Angular CLI
+5. Probar la API (curl) ✅
+6. Crear /web con Angular CLI + proxy a la API ✅
 7. Modelo + ProductService con HttpClient
 8. Componentes: lista, formulario, borrar
-9. Conectar front y back (proxy/CORS)
+9. ~~Conectar front y back~~ (hecho en el paso 6 con el proxy)
 10. README final (+ tests de la API si hay tiempo)
