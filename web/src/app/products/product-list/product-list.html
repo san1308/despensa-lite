@@ -1,0 +1,27 @@
+@if (products().length === 0) {
+  <p class="empty">No hay productos todavía.</p>
+} @else {
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th class="num">Cantidad</th>
+        <th>Caducidad</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (product of products(); track product.id) {
+        <tr [class.selected]="product.id === selectedId()">
+          <td>{{ product.name }}</td>
+          <td class="num">{{ product.quantity }}</td>
+          <td>{{ product.expiryDate }}</td>
+          <td class="actions">
+            <button type="button" (click)="edit.emit(product)">Editar</button>
+            <button type="button" class="danger" (click)="remove.emit(product)">Borrar</button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

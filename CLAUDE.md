@@ -44,6 +44,6 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 5. Probar la API (curl) ✅
 6. Crear /web con Angular CLI + proxy a la API ✅
 7. Modelo + ProductService con HttpClient ✅
-8. Componentes: lista, formulario, borrar
+8. Componentes: lista, formulario, borrar ✅
 9. ~~Conectar front y back~~ (hecho en el paso 6 con el proxy)
 10. README final (+ tests de la API si hay tiempo)

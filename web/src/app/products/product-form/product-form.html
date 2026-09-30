@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+  <label>
+    Nombre
+    <input formControlName="name" autocomplete="off" />
+    @if (showError('name')) {
+      <small class="field-error">Obligatorio, máximo 100 caracteres.</small>
+    }
+  </label>
+
+  <label>
+    Cantidad
+    <input type="number" formControlName="quantity" min="0" step="1" />
+    @if (showError('quantity')) {
+      <small class="field-error">Número entero mayor o igual que 0.</small>
+    }
+  </label>
+
+  <label>
+    Fecha de caducidad
+    <input type="date" formControlName="expiryDate" />
+    @if (showError('expiryDate')) {
+      <small class="field-error">Obligatoria.</small>
+    }
+  </label>
+
+  <div class="buttons">
+    <button type="submit" class="primary">{{ product() ? 'Guardar cambios' : 'Añadir' }}</button>
+    @if (product()) {
+      <button type="button" (click)="cancelEdit.emit()">Cancelar</button>
+    }
+  </div>
+</form>
