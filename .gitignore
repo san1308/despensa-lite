@@ -1,0 +1,18 @@
+# Dependencias (equivalente a ~/.m2, pero local a cada proyecto)
+node_modules/
+
+# Salidas de compilación (equivalente a target/)
+dist/
+.angular/
+
+# Logs y entorno
+*.log
+npm-debug.log*
+.env
+
+# IDE / SO
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
