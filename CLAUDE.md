@@ -38,7 +38,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 1. Arrancar /api (package.json, dependencias, tsconfig) ✅
 2. Modelo + service en memoria ✅
 3. Controller + routes + app/server ✅
-4. Validación con zod + middleware de errores
+4. Validación con zod + middleware de errores ✅
 5. Probar la API (curl / .http)
 6. Crear /web con Angular CLI
 7. Modelo + ProductService con HttpClient
