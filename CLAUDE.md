@@ -18,11 +18,17 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 - Fechas como string ISO `YYYY-MM-DD`
 - API en ESM (`"type": "module"`); imports relativos con extensión `.ts` (TS los reescribe a `.js` al compilar)
 
+## Decisiones tomadas
+- ESM en la API (`import`/`export`, no `require`)
+- Express 5 + TypeScript 7 (últimas mayores), no Express 4 + TS 5
+- tsconfig estricto (`strict`, `noUncheckedIndexedAccess`)
+
 ## Reglas de trabajo
 - Proponer un plan y esperar el OK antes de escribir código
 - Avanzar paso a paso y parar al final de cada paso
 - Hacer un commit al final de cada paso con un mensaje claro
-- En cada paso, explicar brevemente las diferencias con Java/Spring (y el equivalente en Bean Validation de lo que se use en zod)
+- En cada paso, explicar solo las diferencias importantes con Java/Spring (y el equivalente en Bean Validation de lo que se use en zod)
+- Se pueden agrupar pasos si el usuario lo pide (commit por paso igualmente)
 - Preguntar en vez de asumir
 - Límite de tiempo de 1h-1h30: priorizar que la API y el front funcionen de punta a punta
 - Mantener este archivo corto y actualizarlo si cambia alguna decisión
@@ -30,7 +36,7 @@ Monorepo con dos proyectos independientes (cada uno con su `package.json`, sin n
 ## Plan
 0. Estructura del monorepo ✅
 1. Arrancar /api (package.json, dependencias, tsconfig) ✅
-2. Modelo + service en memoria
+2. Modelo + service en memoria ✅
 3. Controller + routes + app/server
 4. Validación con zod + middleware de errores
 5. Probar la API (curl / .http)
